@@ -210,8 +210,6 @@ GameObject:
   - component: {fileID: 551860482}
   - component: {fileID: 551860485}
   - component: {fileID: 551860484}
-  - component: {fileID: 551860483}
-  - component: {fileID: 551860486}
   m_Layer: 5
   m_Name: Health Count
   m_TagString: Untagged
@@ -238,25 +236,6 @@ RectTransform:
   m_AnchoredPosition: {x: -5.5, y: -2.5}
   m_SizeDelta: {x: 50, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &551860483
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 551860481}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68bab27575ee84411b029b5f5e98734f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializedData: '{}'
-  serializedFormat: edn
-  conversionKeys: []
-  conversionVars: []
-  copyStatus: 0
-  objectDatabaseIds: 
-  objectDatabaseObjects: []
 --- !u!114 &551860484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -299,23 +278,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 551860481}
   m_CullTransparentMesh: 0
---- !u!114 &551860486
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 551860481}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32c8aedeab7cb421da9a055c86933987, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  keyNames:
-  - update-block
-  varNames:
-  - game.cards/get-health
-  arcadiaState: {fileID: 551860483}
 --- !u!1 &853709285
 GameObject:
   m_ObjectHideFlags: 0
@@ -406,8 +368,6 @@ GameObject:
   - component: {fileID: 1359883618}
   - component: {fileID: 1359883622}
   - component: {fileID: 1359883621}
-  - component: {fileID: 1359883620}
-  - component: {fileID: 1359883619}
   m_Layer: 5
   m_Name: Block Count
   m_TagString: Untagged
@@ -434,42 +394,6 @@ RectTransform:
   m_AnchoredPosition: {x: -6.5, y: -4}
   m_SizeDelta: {x: 50, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1359883619
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1359883617}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32c8aedeab7cb421da9a055c86933987, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  keyNames:
-  - update-block
-  varNames:
-  - game.cards/get-block
-  arcadiaState: {fileID: 1359883620}
---- !u!114 &1359883620
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1359883617}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68bab27575ee84411b029b5f5e98734f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializedData: '{}'
-  serializedFormat: edn
-  conversionKeys: []
-  conversionVars: []
-  copyStatus: 0
-  objectDatabaseIds: 
-  objectDatabaseObjects: []
 --- !u!114 &1359883621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -523,8 +447,6 @@ GameObject:
   - component: {fileID: 1504089615}
   - component: {fileID: 1504089618}
   - component: {fileID: 1504089617}
-  - component: {fileID: 1504089616}
-  - component: {fileID: 1504089619}
   m_Layer: 5
   m_Name: Mana Count
   m_TagString: Untagged
@@ -551,25 +473,6 @@ RectTransform:
   m_AnchoredPosition: {x: -7.5, y: -2.5}
   m_SizeDelta: {x: 50, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1504089616
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1504089614}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68bab27575ee84411b029b5f5e98734f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializedData: '{}'
-  serializedFormat: edn
-  conversionKeys: []
-  conversionVars: []
-  copyStatus: 0
-  objectDatabaseIds: 
-  objectDatabaseObjects: []
 --- !u!114 &1504089617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -612,23 +515,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1504089614}
   m_CullTransparentMesh: 0
---- !u!114 &1504089619
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1504089614}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32c8aedeab7cb421da9a055c86933987, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  keyNames:
-  - update-mana
-  varNames:
-  - game.cards/get-mana
-  arcadiaState: {fileID: 1504089616}
 --- !u!224 &1564588179 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2785204443823468751, guid: 566b7571d8234b3479fd48f866904f31,
@@ -851,6 +737,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3370231148449243645, guid: 566b7571d8234b3479fd48f866904f31,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5814033327314739243, guid: 566b7571d8234b3479fd48f866904f31,
         type: 3}
