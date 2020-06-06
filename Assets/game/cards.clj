@@ -69,18 +69,47 @@
 
        (mapcat (fn [{:keys [count name] :as x}] (repeat count x)) all-cards)))
 
-(def deck (shuffle (expand-deck)))
+(def deck (atom (shuffle (expand-deck))))
+
+(def hand (atom []))
+
+(def discard (atom []))
 
 (defn random-card []
-  (let [index (rand-int (count deck))]
-   (deck index)))
+  (let [index (rand-int (count @deck))]
+   (deck @index)))
 
-(expand-deck)
+#_(expand-deck)
 
 (defn draw-hand []
-  (map-indexed (fn [i {:keys [object]}]
-                (set! (. (cmpt object Transform) position) (v3 (* (- i 2) 2) -3 0)))
-               (take 5 deck)))
+  (log (count @deck))
+  (when (< (count @deck) 5)
+     (do
+       (swap! deck concat @discard)
+       (reset! discard [])))
+  (map-indexed (fn [i {:keys [object] :as card}]
+                (swap! hand concat [card])
+                (set! (. (cmpt object Transform) position) (v3 (* (- i 2) 2) -3 0))
+                (swap! deck (fn [x]
+                             (remove #(= % card) x))))
+               (take 5 @deck)))
 
+(defn discard-hand []
+  (mapv (fn [{:keys [object] :as card}]
+         (set! (. (cmpt object Transform) position) deck-position)) @hand)
+  (swap! discard concat @hand)
+  (reset! hand []))
+
+(defn new-turn [obj role-key]
+  (log "new turn")
+  (discard-hand)
+  (doall (draw-hand)))
 
 (count (draw-hand))
+#_(discard-hand)
+
+(log (count @hand))
+
+(log (count @discard))
+
+(log (count @deck))
