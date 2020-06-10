@@ -11,6 +11,7 @@
 (def canvas (object-named "Canvas"))
 
 (def deck-position (v3 10 10 0))
+
 (def snapback-position (atom nil))
 
 (def all-cards [{:name "Examine"
@@ -26,13 +27,35 @@
                  :count 6
                  :power 5}])
 
+(def deck (atom []))
+
+(def hand (atom []))
+
+(def discard (atom []))
+
+(defn discard-card [object]
+    (let [card (first (filter #(= object (:object %)) @hand))]
+      (set! (. (cmpt object Transform) position) deck-position)
+      (swap! hand (fn [x] (remove #(= card %) x)))
+      (swap! discard conj card)
+      (log "hand-" (count @hand))
+      (log "discard-" (count @discard))))
+
+(defn play-card-from-hand [obj] ;maybe get the entire card here and parse it to poth functions
+ #_(play-card (first (filter #(= object (:object %)) @hand)))
+ (discard-card obj))
+
+
 (defn snapback [obj role-key]
   (reset! active-card nil)
-  (set! (. (cmpt obj Transform) position) @snapback-position))
+  (if (< -1 (.. (cmpt obj Transform) position y))
+    (play-card-from-hand obj)
+    (set! (. (cmpt obj Transform) position) @snapback-position)))
 
 (defn card-clicked [obj role-key]
   (reset! active-card obj)
-  (reset! snapback-position (. (cmpt obj Transform) position)))
+  (reset! snapback-position (. (cmpt obj Transform) position))
+  (. (cmpt obj Transform) SetAsLastSibling))
 
 (defn follow-mouse [obj role-key]
   (when (= obj @active-card)
@@ -66,14 +89,9 @@
                  :release-mouse
                  #'snapback)
               (assoc x :object card)))
-
        (mapcat (fn [{:keys [count name] :as x}] (repeat count x)) all-cards)))
 
-(def deck (atom (shuffle (expand-deck))))
-
-(def hand (atom []))
-
-(def discard (atom []))
+(reset! deck (shuffle (expand-deck)))
 
 (defn random-card []
   (let [index (rand-int (count @deck))]

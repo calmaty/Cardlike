@@ -600,6 +600,48 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1860606879 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2128987679481782550, guid: 566b7571d8234b3479fd48f866904f31,
+    type: 3}
+  m_PrefabInstance: {fileID: 2785204442552087039}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1860606881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1860606879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b623ed30193db459984eb7dbd0b51619, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keyNames:
+  - end-turn
+  varNames:
+  - game.cards/new-turn
+  arcadiaState: {fileID: 1860606882}
+--- !u!114 &1860606882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1860606879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bab27575ee84411b029b5f5e98734f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializedData: '{}'
+  serializedFormat: edn
+  conversionKeys: []
+  conversionVars: []
+  copyStatus: 0
+  objectDatabaseIds: 
+  objectDatabaseObjects: []
 --- !u!1 &2035294855
 GameObject:
   m_ObjectHideFlags: 0
@@ -896,6 +938,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 200329357033751679, guid: ac87d2ee6917b6f4794d90257f1caae6,
+        type: 3}
+      propertyPath: m_Value
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac87d2ee6917b6f4794d90257f1caae6, type: 3}
