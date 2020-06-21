@@ -65,12 +65,10 @@
   (mapv (fn [{:keys [name cost learning block power] :as x}]
          (let [card (instantiate (UnityEngine.Resources/Load "Card") (v3 10 10 0))
                     [_ _ c n t i] (descendents card)]
-              (set! (.text (cmpt c Text)) (str (:cost x)))
-              (set! (.text (cmpt n Text)) (str (:name x)))
-              (set! (.text (cmpt t Text)) (str
-                                           (when learning (str "Learning: " learning))
-                                           (when block (str "Block: " block))
-                                           (when power (str "Power: " power))))
+              (mapv utils/change-text [c n t] [cost name (str
+                                                          (when learning (str "Learning: " learning))
+                                                          (when block (str "Block: " block))
+                                                          (when power (str "Power: " power)))])
               (set! (.sprite (cmpt i Image)) (last (UnityEngine.Resources/LoadAll (str "Cards/" name))))
               (child+ canvas card)
               (hook+
